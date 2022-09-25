@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(RawImage))]
+public class Parallax : MonoBehaviour
+{
+    [SerializeField] private float _speed;
+
+    private RawImage _image;
+    private float _imagePositionX;
+
+    private void Awake()
+    {
+        _image = GetComponent<RawImage>();
+    }
+
+    private void Update()
+    {
+        float maxImagePositionX = 1;
+        _imagePositionX += _speed * Time.deltaTime;
+
+        if (_imagePositionX > maxImagePositionX)
+            _imagePositionX = 0;
+
+        _image.uvRect = new Rect(_imagePositionX, 0, _image.uvRect.width, _image.uvRect.height);
+    }
+}
