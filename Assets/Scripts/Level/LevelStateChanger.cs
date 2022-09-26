@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class LevelEnder : MonoBehaviour
+public class LevelStateChanger : MonoBehaviour
 {   
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
@@ -12,7 +12,7 @@ public class LevelEnder : MonoBehaviour
     [SerializeField] private GameObject _menu;
     [SerializeField] private BirdAttacker _birdAttacker;
     [SerializeField] private BirdInput _birdInput;
-    [SerializeField] private Bird _mainBird;
+    [SerializeField] private Bird _bird;
     [SerializeField] private GameObject _spawner;
 
     [SerializeField] private AudioPlayer _audioPlayer;
@@ -32,20 +32,20 @@ public class LevelEnder : MonoBehaviour
         Time.timeScale = 1;
         _fog.gameObject.SetActive(true);
         _audioPlayer.PlaySound(_visibleSound);
-        _mainBird.transform.DOMove(_startPoint.position, _timeToFlyTarget).OnComplete(() => { ResetObjects(true); });
+        _bird.transform.DOMove(_startPoint.position, _timeToFlyTarget).OnComplete(() => { ResetObjects(true); });
         _fog.DOFade(0, _timeToFade);
     }
 
     private void OnEnable()
     {
         _birdAttacker.FullnessIsEmpty += OnEndLevel;
-        _mainBird.Died += OnGameOver;
+        _bird.Died += OnGameOver;
     }
 
     private void OnDisable()
     {
         _birdAttacker.FullnessIsEmpty -= OnEndLevel;
-        _mainBird.Died -= OnGameOver;
+        _bird.Died -= OnGameOver;
     }
 
     public void OnEndLevel()
@@ -53,7 +53,7 @@ public class LevelEnder : MonoBehaviour
         _audioPlayer.StopMusic();
         ResetObjects(false);
         _audioPlayer.PlaySound(_visibleSound);
-        _mainBird.transform.DOMove(_endPoint.position, _timeToFlyTarget).OnComplete(() => { FadeIn(); });
+        _bird.transform.DOMove(_endPoint.position, _timeToFlyTarget).OnComplete(() => { FadeIn(); });
     }
 
     private void OnGameOver()
@@ -61,7 +61,7 @@ public class LevelEnder : MonoBehaviour
         _audioPlayer.StopMusic();
         ResetObjects(false);
         _audioPlayer.PlaySound(_damageSound);
-        _mainBird.GetComponent<SpriteRenderer>().DOFade(0, 0.6f);
+        _bird.GetComponent<SpriteRenderer>().DOFade(0, 0.6f);
 
         _fog.DOFade(1, 1f).OnComplete(() => { _menu.SetActive(true); Time.timeScale = 0; });
     }

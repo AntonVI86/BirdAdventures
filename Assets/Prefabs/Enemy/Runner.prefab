@@ -5197,6 +5197,7 @@ GameObject:
   - component: {fileID: 3758044548680898094}
   - component: {fileID: 1004605476055030968}
   - component: {fileID: 8408114566275591665}
+  - component: {fileID: 7195050835785660286}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -5329,7 +5330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startReward: 12
-  _scoreText: {fileID: 3431303410585860237}
   _hited:
     m_PersistentCalls:
       m_Calls:
@@ -5372,8 +5372,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isSoil: 0
-  _textPosition: {fileID: 0}
-  _textColorAlpha: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &3758044548680898094
 Rigidbody2D:
   serializedVersion: 4
@@ -5420,3 +5418,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd06a566bd88234eb78e64ebebbbfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7195050835785660286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498215655902164127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2a534bdc4fabc4f9311b39483dfbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 3431303410585860237}
+  _textPosition: {fileID: 3589730846669705889}

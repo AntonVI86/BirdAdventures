@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossLevelCompleter : MonoBehaviour
 {
-    [SerializeField] private LevelEnder _levelEnder;
+    [SerializeField] private LevelStateChanger _levelEnder;
     [SerializeField] private BossHealth _boss;
     [SerializeField] private ScoreCounter _counter;
 

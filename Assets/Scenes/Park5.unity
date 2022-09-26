@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985870175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b5a5185bd153344a490aedad736105, type: 3}
+  m_Script: {fileID: 11500000, guid: 431c07d08fc60a7468449737c9873757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 1536036784}
@@ -1448,18 +1448,13 @@ MonoBehaviour:
   _fog: {fileID: 1549351930}
   _speed: 4
   _starsPanel: {fileID: 1730174397}
-  _stars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _menu: {fileID: 1712606893}
   _birdAttacker: {fileID: 1170588496}
   _birdInput: {fileID: 1170588497}
-  _mainBird: {fileID: 1170588495}
+  _bird: {fileID: 1170588495}
   _spawner: {fileID: 777626723}
   _audioPlayer: {fileID: 519420033}
   _visibleSound: {fileID: 8300000, guid: 17142c41d15d0b047bd5b52694046a02, type: 3}
-  _unVisibleSound: {fileID: 8300000, guid: 17142c41d15d0b047bd5b52694046a02, type: 3}
   _damageSound: {fileID: 8300000, guid: faf726cb4ecae9c4bafc56fe6f3df4ed, type: 3}
 --- !u!4 &1985870177
 Transform:
