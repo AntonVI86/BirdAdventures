@@ -11,6 +11,7 @@ public class LevelButtonCreator : MonoBehaviour
     private List<LevelButton> _levelButtons = new List<LevelButton>();
 
     private const string _pathName = "Levels";
+    private const string EarnedStarsString = "EarnedStars";
 
     private void Awake()
     {
@@ -50,12 +51,14 @@ public class LevelButtonCreator : MonoBehaviour
 
     private void GetLevelStarsCount()
     {
+        const string SpendStarsString = "SpendStars";
+
         int stars = 0;
-        int temp = PlayerPrefs.GetInt("SpendStars");
+        int temp = PlayerPrefs.GetInt(SpendStarsString);
 
         foreach (var level in _levels)
         {
-            stars += PlayerPrefs.GetInt("EarnedStars" + level.LoadingName);
+            stars += PlayerPrefs.GetInt(EarnedStarsString + level.LoadingName);
         }
 
         stars -= temp;
@@ -66,7 +69,7 @@ public class LevelButtonCreator : MonoBehaviour
     {
         for (int i = 0; i < _levels.Count; i++)
         {
-            if (PlayerPrefs.GetInt("EarnedStars" + _levels[i].LoadingName) > 0)
+            if (PlayerPrefs.GetInt(EarnedStarsString + _levels[i].LoadingName) > 0)
             {
                 if (i != _levels.Count - 1)
                     _levels[i + 1].UnlockLevel();

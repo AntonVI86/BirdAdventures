@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerAbilities))]
+[RequireComponent(typeof(AudioSource))]
 public class BirdMover : AnimatorHash
 {
     [SerializeField] private AudioClip _flyingSound;

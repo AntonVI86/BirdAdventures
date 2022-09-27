@@ -1088,10 +1088,10 @@ MonoBehaviour:
   _speed: 4
   _starsPanel: {fileID: 1878614875}
   _menu: {fileID: 1927816592}
+  _spawner: {fileID: 777626723}
   _birdAttacker: {fileID: 1103875341}
   _birdInput: {fileID: 1103875334}
   _bird: {fileID: 1103875342}
-  _spawner: {fileID: 777626723}
   _audioPlayer: {fileID: 519420030}
   _visibleSound: {fileID: 8300000, guid: 17142c41d15d0b047bd5b52694046a02, type: 3}
   _damageSound: {fileID: 8300000, guid: faf726cb4ecae9c4bafc56fe6f3df4ed, type: 3}
@@ -1574,6 +1574,11 @@ PrefabInstance:
       propertyPath: _bird
       value: 
       objectReference: {fileID: 1103875341}
+    - target: {fileID: 8317374687046545615, guid: 48b2885bc96bfab45a0b5d8592c4cd2b,
+        type: 3}
+      propertyPath: _abilities
+      value: 
+      objectReference: {fileID: 8864391451414764313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48b2885bc96bfab45a0b5d8592c4cd2b, type: 3}
 --- !u!1001 &8864391451414764312
@@ -1645,3 +1650,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32526315770023b4fa196f87126ec190, type: 3}
+--- !u!114 &8864391451414764313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8864391452468041239, guid: 32526315770023b4fa196f87126ec190,
+    type: 3}
+  m_PrefabInstance: {fileID: 8864391451414764312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2ca9da622b2f947bbc6adb8fbd5287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _continue;
     [SerializeField] private Button _exit;
 
-    private const string _mapSceneName = "Map";
+    private const string MapSceneName = "Map";
 
     private void OnEnable()
     {
@@ -29,12 +29,12 @@ public class MainMenu : MonoBehaviour
     private void OnNewGame()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(_mapSceneName);
+        SceneManager.LoadScene(MapSceneName);
     }
 
     private void OnContinue()
     {
-        SceneManager.LoadScene(_mapSceneName);
+        SceneManager.LoadScene(MapSceneName);
     }
 
     private void OnExit()

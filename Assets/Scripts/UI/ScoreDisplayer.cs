@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(ScoreCounter))]
 public class ScoreDisplayer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _score;
@@ -14,13 +14,9 @@ public class ScoreDisplayer : MonoBehaviour
     [SerializeField] private Image _fillImage;
 
     private ScoreCounter _counter;
-    private Animator _animator;
-
-    private int _changeSizeHash = Animator.StringToHash("ChangeSize");
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
         _counter = GetComponent<ScoreCounter>();
 
         _level.SetStartMaxValueProgressBar(_progressBar);
@@ -39,7 +35,6 @@ public class ScoreDisplayer : MonoBehaviour
 
     private void OnScoreChanged(int score)
     {
-       // _animator.Play(_changeSizeHash);
         _level.ReachTargetScoreValue(_counter.Score, _fillImage, _barColor);
         StartCoroutine(ChangeProgressBarValue());
         _score.text = $"{score} / {_progressBar.maxValue}";

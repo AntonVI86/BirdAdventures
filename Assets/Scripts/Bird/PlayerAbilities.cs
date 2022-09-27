@@ -22,6 +22,12 @@ public class PlayerAbilities : MonoBehaviour
     public float TimeBetweenShoot => _timeBetweenShoot;
     public int Stars => _stars;
 
+    private const string HorizontalSpeedString = "HorizontalSpeed";
+    private const string VerticalSpeedString = "VerticalSpeed";
+    private const string MaxFullnessString = "MaxFullness";
+    private const string RechargeString = "Recharge";
+    private const string StarsString = "Stars";
+
     private void Awake()
     {
         LoadStats();
@@ -35,29 +41,29 @@ public class PlayerAbilities : MonoBehaviour
 
     private void LoadStats()
     {
-        if (PlayerPrefs.HasKey("HorizontalSpeed"))
-            _horizontalSpeed = PlayerPrefs.GetFloat("HorizontalSpeed");
+        if (PlayerPrefs.HasKey(HorizontalSpeedString))
+            _horizontalSpeed = PlayerPrefs.GetFloat(HorizontalSpeedString);
         else
             _horizontalSpeed = _baseHorizontalSpeed;
 
-        if (PlayerPrefs.HasKey("VerticalSpeed"))
-            _verticalSpeed = PlayerPrefs.GetFloat("VerticalSpeed");
+        if (PlayerPrefs.HasKey(VerticalSpeedString))
+            _verticalSpeed = PlayerPrefs.GetFloat(VerticalSpeedString);
         else
             _verticalSpeed = _baseVerticalSpeed;
 
-        if (PlayerPrefs.HasKey("MaxFullness"))
-            _maxFullness = PlayerPrefs.GetFloat("MaxFullness");
+        if (PlayerPrefs.HasKey(MaxFullnessString))
+            _maxFullness = PlayerPrefs.GetFloat(MaxFullnessString);
         else
             _maxFullness = _baseMaxFullness;
 
-        if (PlayerPrefs.HasKey("Recharge"))
-            _timeBetweenShoot = PlayerPrefs.GetFloat("Recharge");
+        if (PlayerPrefs.HasKey(RechargeString))
+            _timeBetweenShoot = PlayerPrefs.GetFloat(RechargeString);
         else
             _timeBetweenShoot = _baseTimeBetweenShoot;
 
-        if (PlayerPrefs.HasKey("Stars"))
+        if (PlayerPrefs.HasKey(StarsString))
         {
-            PlayerPrefs.GetInt("Stars");
+            PlayerPrefs.GetInt(StarsString);
         }
         else
         {
@@ -67,18 +73,18 @@ public class PlayerAbilities : MonoBehaviour
 
     private void SaveStats()
     {
-        PlayerPrefs.SetFloat("HorizontalSpeed", _horizontalSpeed);
-        PlayerPrefs.SetFloat("VerticalSpeed", _verticalSpeed);
-        PlayerPrefs.SetFloat("MaxFullness", _maxFullness);
-        PlayerPrefs.SetFloat("Recharge", _timeBetweenShoot);
-        PlayerPrefs.SetInt("Stars", _stars);
+        PlayerPrefs.SetFloat(HorizontalSpeedString, _horizontalSpeed);
+        PlayerPrefs.SetFloat(VerticalSpeedString, _verticalSpeed);
+        PlayerPrefs.SetFloat(MaxFullnessString, _maxFullness);
+        PlayerPrefs.SetFloat(RechargeString, _timeBetweenShoot);
+        PlayerPrefs.SetInt(StarsString, _stars);
     }
 
     public void AddStars(int earnedStars)
     {
         _stars += earnedStars;
         StarsValueChanged?.Invoke(_stars);
-        PlayerPrefs.SetInt("Stars", _stars);
+        PlayerPrefs.SetInt(StarsString, _stars);
     }
 
     public void ImproveAbility(string abilityName, float step)
@@ -91,11 +97,12 @@ public class PlayerAbilities : MonoBehaviour
     public void SpendStars(int cost)
     {
         int temp = 0;
+        const string SpendStars = "SpendStars";
 
         _stars -= cost;
         StarsValueChanged?.Invoke(_stars);
-        temp = PlayerPrefs.GetInt("SpendStars");
+        temp = PlayerPrefs.GetInt(SpendStars);
         temp += cost;
-        PlayerPrefs.SetInt("SpendStars", temp);
+        PlayerPrefs.SetInt(SpendStars, temp);
     }
 }

@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class AbilityView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _label;
-    [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _cost;
+    [SerializeField] private Image _icon;
     [SerializeField] private Image _abilityLevel;
     [SerializeField] private Button _sellButton;
+
     [SerializeField] private Transform _container;
 
     private Ability _ability;

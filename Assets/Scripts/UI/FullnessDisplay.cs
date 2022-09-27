@@ -10,14 +10,15 @@ public class FullnessDisplay : MonoBehaviour
     [SerializeField] private BirdAttacker _bird;
     [SerializeField] private Slider _fullnessBar;
     [SerializeField] private TMP_Text _fullnessText;
+    [SerializeField] private PlayerAbilities _abilities;
 
     private float _fillSpeed = 15;
 
-    private void Awake()
+    private void Start()
     {
-        _fullnessBar.maxValue = PlayerPrefs.GetFloat("MaxFullness");
+        _fullnessBar.maxValue = _abilities.MaxFulness;
         _fullnessBar.value = _fullnessBar.maxValue;
-        _fullnessText.text = $"{_bird.CurrentFullness} / {PlayerPrefs.GetFloat("MaxFullness")}";
+        _fullnessText.text = $"{_bird.CurrentFullness} / {_abilities.MaxFulness}";
     }
 
     private void OnEnable()
@@ -33,7 +34,7 @@ public class FullnessDisplay : MonoBehaviour
     private void OnChangedFullness(float value)
     {
         StartCoroutine(ChangeValue());
-        _fullnessText.text = $"{_bird.CurrentFullness} / {PlayerPrefs.GetFloat("MaxFullness")}";
+        _fullnessText.text = $"{_bird.CurrentFullness} / {_abilities.MaxFulness}";
     }
 
     private IEnumerator ChangeValue()

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class LevelButton : MonoBehaviour
 {
     [SerializeField] private TMP_Text _levelName;
@@ -56,14 +57,17 @@ public class LevelButton : MonoBehaviour
 
     public void SaveReceivedStarsValue()
     {
-        int stars = PlayerPrefs.GetInt("EarnedStars" + _level.LoadingName);
-        _receivedStars = PlayerPrefs.GetInt("ReceivedStars" + _level.LoadingName);
+        const string EarnedStarsString = "EarnedStars";
+        const string ReceivedStarsString = "ReceivedStars";
+
+        int stars = PlayerPrefs.GetInt(EarnedStarsString + _level.LoadingName);
+        _receivedStars = PlayerPrefs.GetInt(ReceivedStarsString + _level.LoadingName);
 
         if (_receivedStars < stars)
         {
             _receivedStars = stars;
 
-            PlayerPrefs.SetInt("ReceivedStars" + _level.LoadingName, _receivedStars);
+            PlayerPrefs.SetInt(ReceivedStarsString + _level.LoadingName, _receivedStars);
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AddingScoreTextDisplayer))]
 public class Creature : CreatureAnimator
 {
     [SerializeField] private int _startReward;

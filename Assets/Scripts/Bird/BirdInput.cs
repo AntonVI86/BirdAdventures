@@ -8,14 +8,12 @@ public class BirdInput : MonoBehaviour
 {
     private BirdMover _mover;
     private BirdAttacker _attacker;
-    private Camera _camera;
 
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
 
     private void Awake()
     {
-        _camera = Camera.main;
         _mover = GetComponent<BirdMover>();
         _attacker = GetComponent<BirdAttacker>();
     }

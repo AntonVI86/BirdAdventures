@@ -37,7 +37,7 @@ public class BirdAttacker : AnimatorHash
     {
         if (_elapsedTime <= 0 && _currentFullness > 0)
         {
-            _animator.SetTrigger("Empty");
+            _animator.SetTrigger(EmptyHash);
 
             Bullet newBullet = Instantiate(_template, _spawnPoint);
             newBullet.PushOut(this, _rayPoint);

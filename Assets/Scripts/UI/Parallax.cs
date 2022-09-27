@@ -19,6 +19,7 @@ public class Parallax : MonoBehaviour
     private void Update()
     {
         float maxImagePositionX = 1;
+
         _imagePositionX += _speed * Time.deltaTime;
 
         if (_imagePositionX > maxImagePositionX)

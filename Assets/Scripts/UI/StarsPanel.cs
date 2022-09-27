@@ -14,12 +14,15 @@ public class StarsPanel : MonoBehaviour
     private int _earnedLevelStars = 0;
 
     private const string _mapSceneName = "Map";
+    private const string ScoreString = "Score";
 
     private void OnEnable()
     {
-        _level.CountStars(PlayerPrefs.GetInt("Score"));
-        _earnedLevelStars = PlayerPrefs.GetInt("CurrentStars" + _level.LoadingName);
+        _level.CountStars(PlayerPrefs.GetInt(ScoreString));
+        _earnedLevelStars = PlayerPrefs.GetInt(_level.StarsString + _level.LoadingName);
+
         StartCoroutine(ActivateStars());
+
         _restartButton.onClick.AddListener(OnRestartScene);
         _nextSceneButton.onClick.AddListener(OnNextScene);
     }

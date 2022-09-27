@@ -11,9 +11,13 @@ public class Level : ScriptableObject
     [SerializeField] private int _earnedStars;
     [SerializeField] private bool _isUnlocked;
 
+    private const string CurrentStarsString = "CurrentStars";
+    private const string EarnedStarsString = "EarnedStars";
+
     public string Name => _name;
     public string LoadingName => _loadingName;
     public bool IsUnlocked => _isUnlocked;
+    public string StarsString => CurrentStarsString; 
 
     public void CountStars(int score)
     {
@@ -27,11 +31,11 @@ public class Level : ScriptableObject
             }
         }
 
-        PlayerPrefs.SetInt("CurrentStars" + _loadingName, _earnedStars);
+        PlayerPrefs.SetInt(CurrentStarsString + _loadingName, _earnedStars);
         
-        if(_earnedStars > PlayerPrefs.GetInt("EarnedStars" + _loadingName))
+        if(_earnedStars > PlayerPrefs.GetInt(EarnedStarsString + _loadingName))
         {
-            PlayerPrefs.SetInt("EarnedStars" + _loadingName, _earnedStars);
+            PlayerPrefs.SetInt(EarnedStarsString + _loadingName, _earnedStars);
         }
     }
 

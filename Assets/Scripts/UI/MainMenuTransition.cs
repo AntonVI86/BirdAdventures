@@ -6,7 +6,7 @@ public class MainMenuTransition : MonoBehaviour
 {
     [SerializeField] private Button _toMainMenu;
 
-    private const string _mainMenuName = "MainMenu";
+    private const string MainMenuName = "MainMenu";
 
     private void OnEnable()
     {
@@ -20,6 +20,6 @@ public class MainMenuTransition : MonoBehaviour
 
     private void OnToMainMenu()
     {
-        SceneManager.LoadScene(_mainMenuName);
+        SceneManager.LoadScene(MainMenuName);
     }
 }

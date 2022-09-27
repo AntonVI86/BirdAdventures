@@ -22,19 +22,21 @@ public class Ability : ScriptableObject
     public int CurrentValue => _currentValue;
     public float StepAddition => _stepAddition;
 
+    private const string AbilityLevel = "AbilityLevel";
+
     public void AddLevel()
     {
         ShowLevel();
 
         _currentValue++;
-        PlayerPrefs.SetInt("AbilityLevel" + _abilityName, _currentValue);
+        PlayerPrefs.SetInt(AbilityLevel + _abilityName, _currentValue);
     }
 
     public void ShowLevel()
     {
-        if (PlayerPrefs.HasKey("AbilityLevel" + _abilityName))
+        if (PlayerPrefs.HasKey(AbilityLevel + _abilityName))
         {
-            _currentValue = PlayerPrefs.GetInt("AbilityLevel" + _abilityName);
+            _currentValue = PlayerPrefs.GetInt(AbilityLevel + _abilityName);
         }
     }
 }

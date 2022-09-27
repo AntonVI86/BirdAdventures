@@ -6,14 +6,18 @@ public class LevelStateChanger : MonoBehaviour
 {   
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
+
     [SerializeField] private Image _fog;
+
     [SerializeField] private float _speed;
+
     [SerializeField] private GameObject _starsPanel;
     [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _spawner;
+
     [SerializeField] private BirdAttacker _birdAttacker;
     [SerializeField] private BirdInput _birdInput;
     [SerializeField] private Bird _bird;
-    [SerializeField] private GameObject _spawner;
 
     [SerializeField] private AudioPlayer _audioPlayer;
     [SerializeField] private AudioClip _visibleSound;
@@ -58,10 +62,12 @@ public class LevelStateChanger : MonoBehaviour
 
     private void OnGameOver()
     {
+        float timeToFade = 0.6f;
+
         _audioPlayer.StopMusic();
         ResetObjects(false);
         _audioPlayer.PlaySound(_damageSound);
-        _bird.GetComponent<SpriteRenderer>().DOFade(0, 0.6f);
+        _bird.Renderer.DOFade(0, timeToFade);
 
         _fog.DOFade(1, 1f).OnComplete(() => { _menu.SetActive(true); Time.timeScale = 0; });
     }

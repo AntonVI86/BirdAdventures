@@ -2,10 +2,13 @@
 using DG.Tweening;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
 public class LevelName : MonoBehaviour
 {
     [SerializeField] private Level _level;
+
     private Text _name;
+
     private float _timeToFade = 2;
 
     private void Awake()
@@ -16,7 +19,7 @@ public class LevelName : MonoBehaviour
     private void Start()
     {
         _name.text = _level.Name;
-        Invoke("Fade", _timeToFade);
+        Invoke(nameof(Fade), _timeToFade);
     }
 
     private void Fade()

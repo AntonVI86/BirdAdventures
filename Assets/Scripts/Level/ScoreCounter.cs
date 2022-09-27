@@ -11,10 +11,12 @@ public class ScoreCounter : MonoBehaviour
 
     public event UnityAction<int> ScoreChanged;
 
+    private const string ScoreString = "Score";
+
     private void Start()
     {
         _score = 0;
-        PlayerPrefs.SetInt("Score", _score);
+        PlayerPrefs.SetInt(ScoreString, _score);
         ScoreChanged?.Invoke(_score);
     }
 
@@ -22,6 +24,6 @@ public class ScoreCounter : MonoBehaviour
     {
         _score += reward;
         ScoreChanged?.Invoke(_score);
-        PlayerPrefs.SetInt("Score", _score);
+        PlayerPrefs.SetInt(ScoreString, _score);
     }
 }

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Star : MonoBehaviour
 {
     private Image _star;
+    private float _duration = 1f;
 
     private void Awake()
     {
         _star = GetComponent<Image>();
-        _star.rectTransform.DOScale(1f, 1);
-    }
 
+        _star.rectTransform.DOScale(1f, _duration);
+    }
 }
